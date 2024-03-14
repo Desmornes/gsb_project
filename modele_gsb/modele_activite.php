@@ -21,12 +21,12 @@ function getActivities(){
     $response = array();
     $conn -> query("SET NAMES utf8");
     $result= $conn -> query($query);
-    while($row = $conn -> fetch()){
+    while($row = $result->fetch()){
         $response[] = $row;
     }
     $result->closeCursor();
     header('Content-Type: application/json');
-    echo json_encode($response, JSON_PRETTY_PRINT);
+    return $response;
 }
 
 //récupérer une activité avec un id donné
@@ -38,11 +38,11 @@ function getActivity($id=0){
     }
     $conn->query("SET NAMES utf8");
     $result= $conn -> query($query);
-    while($row = $conn -> fetch()){
+    while($row = $result -> fetch()){
         $response[] = $row;
     }
     header('Content-Type: application/json');
-    echo json_encode($response, JSON_PRETTY_PRINT);
+    return $response;
 }
 
 //ajouter un utilisateur à une activité
