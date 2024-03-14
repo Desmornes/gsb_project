@@ -35,10 +35,13 @@ function getMedicament($id=0)
     return $response;
 }
 // requete qui recupere tout les enregistrements de la table effet_therapeutique
-function getEffetsTherapeutiques()
+function getEffetsTherapeutiques($id=0)
 {
     global $conn;
-    $query = "SELECT * FROM effets_therapeutiques";
+    $query = "SELECT _nom_effet_therapeutique
+    FROM effets_therapeutiques 
+    JOIN procure ON effets_therapeutiques._id_effet_therapeutique = procure._id_effet_therapeutique
+    WHERE effets_therapeutiques._id_effet_therapeutique =".$id.";";
     $response = array();
 
     $conn->query("SET NAMES utf8");
@@ -72,10 +75,13 @@ function getEffetTherapeutique($id=0)
 }
 
 // requete qui recupere tout les enregistrements de la table effef_secondaire
-function getEffetsSecondaires()
+function getEffetsSecondaires($id=0)
 {
     global $conn;
-    $query = "SELECT * FROM effets_secondaires";
+    $query = "SELECT _nom_effet_secondaire
+    FROM effets_secondaires 
+    JOIN provoque ON effets_secondaires._id_effet_secondaire = provoque._id_effet_secondaire
+    WHERE effets_secondaires._id_effet_secondaire = ".$id.";";
     $response = array();
 
     $conn->query("SET NAMES utf8");
@@ -107,4 +113,4 @@ function getEffetSecondaire($id=0)
     return $response; 
 }
 
-    ?>
+?>
