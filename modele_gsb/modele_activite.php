@@ -1,5 +1,5 @@
 <?php
-
+include("db_connect_gsb.php");
 //connexion à la BD
 function connexionBD(){
     $servername = "localhost";

@@ -1,5 +1,6 @@
 <?php
 // requete qui recupere tout les enregistrements de la table medicament
+include("db_connect_gsb.php");
 function getMedicaments()
     {
         global $conn;
@@ -14,7 +15,7 @@ function getMedicaments()
     }
     $result->closeCursor();
     header('Content-Type: application/json');
-    return $response;
+  echo json_encode($response, JSON_PRETTY_PRINT);
 }
 // requete qui recupere un enregistrement de la table medicament et le renvoie en json au client
 function getMedicament($id=0)
