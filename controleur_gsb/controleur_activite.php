@@ -1,7 +1,6 @@
 <?php
 
-include "modele_gsb\db_connect_gsb.php";
-require_once "modele_gsb\modele_activite.php";
+require_once "../modele_gsb/modele_activite.php";
 
 $request_method = $_SERVER["REQUEST_METHOD"];
 

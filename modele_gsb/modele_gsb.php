@@ -21,7 +21,7 @@ function getMedicaments()
     }
     $result->closeCursor();
     header('Content-Type: application/json');
-  echo json_encode($response, JSON_PRETTY_PRINT);
+    echo json_encode($response, JSON_PRETTY_PRINT);
 }
 // requete qui recupere un enregistrement de la table medicament et le renvoie en json au client
 function getMedicament($id=0)
