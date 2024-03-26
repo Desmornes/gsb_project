@@ -1,6 +1,4 @@
-<?php
-//que les require ici ?
-require_once "controleur_gsb/controleur_activite.php";
-require_once "controleur_gsb/controleur_medic.php";
 
-?>  
+
+<a href="controleur_gsb/controleur_medic.php">médicaments</a>
+<a href="controleur_gsb/controleur_activite.php">activités</a>

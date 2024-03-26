@@ -10,10 +10,8 @@
         <h3>
             Test
         </h3>
-        
             <?php 
             var_dump($result);
             ?>
-        
     </body>
 </html>

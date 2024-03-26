@@ -6,6 +6,22 @@ $password ='';
 $conn = new PDO("mysql:host=$servername;dbname=gsb_bd", $username, $password);
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+$request_method = $_SERVER["REQUEST_METHOD"];
+
+switch($request_method){
+    case 'GET':
+        if(!empty($_GET["idMed"])){
+            getMedicament($_GET["idMed"]);
+        }
+        else{
+            getMedicaments();
+        }
+        break;
+    default:
+        header("HTTP/1.0 405 Method Not Allowed");
+        break;
+    }
+
 // requete qui recupere tout les enregistrements de la table medicament
 function getMedicaments()
     {
@@ -27,10 +43,10 @@ function getMedicaments()
 function getMedicament($id=0)
 {
     global $conn;
-    $query = "SELECT * FROM medicament";
+    $query = "SELECT * FROM medicaments";
     if($id !=0)
     {
-        $query .= " WHERE id=".$id."LIMIT 1";
+        $query .= " WHERE _id_medicament=".$id." LIMIT 1";
     } 
     $conn-> query("SET NAMES utf8");
     $result = $conn->query($query);
@@ -39,7 +55,7 @@ function getMedicament($id=0)
         $response[]= $row;
     }
     header('Content-Type: application/json');
-    return $response;
+    echo json_encode($response, JSON_PRETTY_PRINT);
 }
 // requete qui recupere tout les enregistrements de la table effet_therapeutique
 function getEffetsTherapeutiques($id=0)
@@ -59,7 +75,7 @@ function getEffetsTherapeutiques($id=0)
     }
     $result->closeCursor();
     header('Content-Type:application/json');
-    return $response;
+    echo json_encode($response, JSON_PRETTY_PRINT);
 }
 // requete qui recupere un enregistrement de la table medicament et le renvoie en json au client
 function getEffetTherapeutique($id=0)
@@ -77,7 +93,7 @@ function getEffetTherapeutique($id=0)
         $response[]= $row;
     }
     header('Content-Type: application/json');
-    return $response;
+    echo json_encode($response, JSON_PRETTY_PRINT);
  
 }
 
@@ -99,7 +115,7 @@ function getEffetsSecondaires($id=0)
     }
     $result-> closeCursor();
     header('Content-Type:application/json');
-    return $response;
+    echo json_encode($response, JSON_PRETTY_PRINT);
 }
 // requete qui recupere un enregistrement de la table effets_secondaires et le renvoie au client
 function getEffetSecondaire($id=0)
@@ -117,7 +133,7 @@ function getEffetSecondaire($id=0)
         $response[]= $row;
     }
     header('Content-Type: application/json');
-    return $response; 
+    echo json_encode($response, JSON_PRETTY_PRINT);
 }
 
 ?>

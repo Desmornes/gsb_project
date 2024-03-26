@@ -31,7 +31,7 @@ function getActivities(){
     }
     $result->closeCursor();
     header('Content-Type: application/json');
-    return $response;
+    echo json_encode($response, JSON_PRETTY_PRINT);
 }
 
 //récupérer une activité avec un id donné
@@ -47,7 +47,7 @@ function getActivity($id=0){
         $response[] = $row;
     }
     header('Content-Type: application/json');
-    return $response;
+    echo json_encode($response, JSON_PRETTY_PRINT);
 }
 
 //ajouter un utilisateur à une activité
