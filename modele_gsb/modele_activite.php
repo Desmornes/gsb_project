@@ -18,6 +18,26 @@ function connexionBD(){
     }
     return $conn;
 }
+switch($request_method){
+    case 'GET':
+        if(!empty($_GET["idAct"])){
+            getActivity($_GET["idAct"]);
+        }
+        else{
+            getActivities();
+        }
+        break;
+        
+     case "POST":
+            //ajouter un utilisateur à une activité
+            addUserToActivity();
+            break;
+        default:
+            header("HTTP/1.0 405 Method Not Allowed");
+            break;
+     }
+
+
 
 //récupérer toutes les activités
 function getActivities(){
