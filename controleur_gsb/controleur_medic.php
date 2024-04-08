@@ -11,7 +11,7 @@ if(!empty($_GET["idMed"])){
     );
     $context = stream_context_create($options);
     $result = file_get_contents($url, false, $context);
-    require_once "../vue_gsb/test.php";
+    require_once "../vue_gsb/medicamentOne.php";
 }
 else{
     $url = "http://localhost/gsb_projet/modele_gsb/modele_gsb.php";
@@ -23,7 +23,7 @@ else{
     );
     $context = stream_context_create($options);
     $result = file_get_contents($url, false, $context);
-    require_once "../vue_gsb/test.php";
+    require_once "../vue_gsb/medicaments.php";
 }
 
  ?>

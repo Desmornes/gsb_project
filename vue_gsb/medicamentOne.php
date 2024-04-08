@@ -1,25 +1,41 @@
-
 <!DOCTYPE html>
 <html lang="fr">
     <head>
         <meta charset="utf-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <title>medicament</title>
+        <title>Nom du médicament</title>
     </head>
     <body>
       <img class="side-img" src="images/medicaments.jpg">
-      <div>
+      <div class="contenu">
         <h1>Nom du médicament</h1>
-        <div class="card" style="width: 18rem;">
-          <img src="images/pill-icon.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Nom du médicament</h5>
-            <p class="card-text">Description du médicament</p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Effets thérapeutiques</li>
-            <li class="list-group-item">Effets secondaires</li>
-          </ul>
+        <br>
+        <div>
+          <!-- <img src="images/pill-icon.png" class="card-img-top" alt="..."> -->
+          <h2>
+            Type
+          </h2>
+          <p>blabla contenu type</p>
+          <hr>
+          <h2>
+            Effets thérapeutiques
+          </h2>
+          <p>blabla contenu effets thérapeutiques</p>
+          <hr>
+          <h2>
+            Effets secondaires
+          </h2>
+          <p>blabla contenu effets secondaires</p>
+          <hr>
+          <h2>
+            Interactions
+          </h2>
+          <p>blabla contenu interactions</p>
+          <hr>
+          <h2>
+            Indications
+          </h2>
+          <p>blabla contenu indications</p>          
         </div>
       </div>
       
@@ -43,17 +59,9 @@
         color: white;
       }
 
-      .card {
-        background-color: #2A201E;
-        color: white;
-        border-radius:0px;
-        border-width: 2px;
-        border-color: white;
-      }
-
-      .card-body {
-        background-color: #2A201E;
-        color: white;
+      .contenu {
+        margin-left:50px;
+        margin-top:50px;
       }
       
     </style>

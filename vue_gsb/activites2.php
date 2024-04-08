@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>medicament</title>
+    <title>Activités</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body class="position-relative">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <div class="position-absolute top-0 end-0 m-3">
-        <img class="burger-menu" src="images/burger-menu-icon.png" width="50" height="50" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"/>
+        <img class="burger-menu" src="../vue_gsb/images/burger-menu-icon.png" width="50" height="50" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"/>
     </div>
-    <img src="images/activites-side.jpg" class="side-img">
+    <img src="../vue_gsb/images/activites-side.jpg" class="side-img">
     <div class="contenu">
         <h1 class="mb-4">Nos activités proposées</h1>
         <p>
-        Chez GSB, nous nous engageons à vous fournir des produits pharmaceutiques de qualité, accompagnés d'informations précises et fiables pour vous aider à prendre des décisions éclairées concernant leur santé. Explorez notre liste complète de médicaments ci-dessous :
-        </p>
+        Chez GSB, nous croyons en l'importance d'aller au-delà de la simple fourniture de médicaments en offrant à nos clients des activités éducatives et informatives pour les aider à mieux comprendre leur santé et leurs traitements. Découvrez nos activités en lien avec les médicaments ci-dessous :        </p>
         <table class="mb-4">
           <thead>
             <tr>
@@ -26,31 +25,23 @@
             </tr>
           </thead>
           <tbody>
+          <?php 
+          $tableauObjets = json_decode($result, true);
+          foreach ($tableauObjets as $activite) : ?>
             <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
+              <th scope="row"><?php echo $activite['_id_activite']; ?></th>
+              <td><?php echo $activite['nom_activite']; ?></td>
+              <td><a href="http://localhost/gsb_projet/controleur_gsb/controleur_activite.php?idAct=<?php echo $activite['_id_activite']; ?>">Voir plus d'informations</a></td>
             </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-            </tr>
+            <?php endforeach;?>
           </tbody>
         </table>
-        <p>
-        Pour chaque médicament, nous fournissons des informations sur son utilisation recommandée, ses effets secondaires potentiels et les précautions à prendre lors de son utilisation. Si vous avez des questions sur l'un de nos produits ou si vous avez besoin de conseils supplémentaires, n'hésitez pas à contacter notre équipe de pharmaciens expérimentés.
-        Nous tenons également à souligner l'importance de prendre vos médicaments conformément aux instructions fournies par votre professionnel de la santé et de ne jamais dépasser la dose recommandée sans consulter un professionnel de la santé.
-        </p>
+        <p>Nous sommes déterminés à vous fournir les connaissances et les outils nécessaires pour prendre en charge votre santé de manière proactive. Pour plus d'informations sur nos activités en lien avec les médicaments ou pour vous inscrire à l'un de nos événements, veuillez contacter notre équipe.</p>
+        <p>Merci de choisir GSB. Nous sommes là pour vous accompagner à chaque étape de votre parcours de santé.</p>
     </div>
     <div class="position-absolute bottom-0 end-0 m-3">
       <a href="medicaments2.php">
-        <img src="images/next-page-icon.png" width="100" height="100"/>
+        <img src="../vue_gsb/images/next-page-icon.png" width="100" height="100"/>
       </a>
     </div>
     <!-- Menu offcanvas -->
