@@ -40,21 +40,24 @@
         <p>Merci de choisir GSB. Nous sommes là pour vous accompagner à chaque étape de votre parcours de santé.</p>
     </div>
     <div class="position-absolute bottom-0 end-0 m-3">
-      <a href="medicaments2.php">
+      <a href="../controleur_gsb/controleur_medic.php">
         <img src="../vue_gsb/images/next-page-icon.png" width="100" height="100"/>
       </a>
     </div>
     <!-- Menu offcanvas -->
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Logo</h5>
+          <a href="../">
+            <img src="../vue_gsb/images/logo_gsb.png" width="100" height="100">
+          </a>
         </div>
         <div class="offcanvas-body">
-            <a href="medicaments2.html" target="_blank">Médicaments</a><br>
-            <a href="activites2.php" target="_blank">Activités</a><br>
-            <a href="mentionLegales.html" target="_blank">Mentions légales</a><br>
-            <a href="politique_de_confidentialite.html" target="_blank">Politique de confidentialité</a><br>
-            <a href="plan_du_site.html" target="_blank">Plan du site</a><br>
+            <a href="../controleur_gsb/controleur_medic.php" target="_blank">Médicaments</a><br>
+            <a>Activités</a><br>
+            <hr>
+            <a href="../vue_gsb/mentions_legales.html" target="_blank">Mentions légales</a><br>
+            <a href="../vue_gsb/politique_de_confidentialite.html" target="_blank">Politique de confidentialité</a><br>
+            <a href="../vue_gsb/plan_du_site.html" target="_blank">Plan du site</a><br>
         </div>
     </div>
 </body>
@@ -102,5 +105,25 @@
 
     table {
       border-collapse: collapse;
+    }
+
+    a {
+      color: #E3D0CD;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-style: normal;
+      text-decoration-line: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
+    a:hover {
+      color: white;
+    }
+
+    .offcanvas-body a{
+      font-size: 1.5rem; 
+      line-height: 2rem;
+      text-decoration-line: none;
     }
 </style>

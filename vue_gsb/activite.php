@@ -9,6 +9,10 @@
         <title><?php echo $activite["nom_activite"]; ?></title>
     </head>
     <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <div class="position-absolute top-0 end-0 m-3">
+        <img class="burger-menu" src="../vue_gsb/images/burger-menu-icon.png" width="50" height="50" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"/>
+    </div>
       <img class="side-img" src="../vue_gsb/images/activites.jpg">
       <div class="contenu">
         <h1><?php echo $activite["nom_activite"]; ?></h1>
@@ -61,9 +65,25 @@
             </div>
           </div>
           <input type="submit" value="Envoyer">
-        </div>
         </form>
-        
+      </div>
+      <!-- Menu offcanvas -->
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+          <div class="offcanvas-header">
+            <a href="../">
+              <img src="../vue_gsb/images/logo_gsb.png" width="100" height="100">
+            </a>
+          </div>
+          <div class="offcanvas-body">
+            <a href="../controleur_gsb/controleur_medic.php" target="_blank">Médicaments</a><br>
+            <a href="../controleur_gsb/controleur_activite.php">Activités</a><br>
+            <hr>
+            <a href="../vue_gsb/mentions_legales.html" target="_blank">Mentions légales</a><br>
+            <a href="../vue_gsb/politique_de_confidentialite.html" target="_blank">Politique de confidentialité</a><br>
+            <a href="../vue_gsb/plan_du_site.html" target="_blank">Plan du site</a><br>
+        </div>
+      </div>
+      
     </body>
     <style>
       .side-img {
@@ -83,6 +103,11 @@
         background-color: #2A201E;
         color: white;
       }
+
+      .offcanvas {
+      background-color: #2A201E;
+      color:white;
+    }
 
       .contenu {
         margin-left:50px;
@@ -104,6 +129,40 @@
           display: flex;
           flex-direction: column;
       }
+
+      input, textarea {
+        border-color:white;
+        border-width: 2px;
+        background: transparent;
+        padding:4px;
+        color:white;
+        outline: 0;
+      }
+
+      input[type=submit]{
+        margin-top:10px;
+        padding:4px;
+      }
+
+      a {
+      color: #E3D0CD;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-style: normal;
+      text-decoration-line: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
+    a:hover {
+      color: white;
+    }
+
+    .offcanvas-body a{
+      font-size: 1.5rem; 
+      line-height: 2rem;
+      text-decoration-line: none;
+    }
       
     </style>
 </html>

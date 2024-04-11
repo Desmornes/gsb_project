@@ -9,6 +9,7 @@ if(!empty($_GET["idAct"])){
             "prenom_utilisateur"=> $_POST["prenom"],
             "_nom_utilisateur"=> $_POST["nom"],
             "_adresse_mail"=> $_POST["email"],
+            "activity_id"=> $_GET["idAct"],
         );
         $options = array(
             'header' => "Content-Type: application/json/x-www-form-urlencoded\r\n",
@@ -33,7 +34,7 @@ if(!empty($_GET["idAct"])){
     );
     $context = stream_context_create($options);
     $result = file_get_contents($url, false, $context);
-    require_once "../vue_gsb/une_activite.php";
+    require_once "../vue_gsb/activite.php";
     }
 }
 else{
@@ -46,7 +47,7 @@ else{
     );
     $context = stream_context_create($options);
     $result = file_get_contents($url, false, $context);
-    require_once "../vue_gsb/activites2.php";
+    require_once "../vue_gsb/activites.php";
 }
         
    

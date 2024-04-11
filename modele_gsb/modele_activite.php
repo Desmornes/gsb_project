@@ -87,7 +87,6 @@ function addUserToActivity(){
         $user_id = $row['_id_utilisateur'];
     }
     $result->closeCursor();
-
     //TODO : créer le user s'il existe pas déjà
     
 
