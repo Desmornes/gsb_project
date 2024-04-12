@@ -1,4 +1,5 @@
 <?php
+
 $servername = 'localhost';
 $username = 'root';
 $password ='';
@@ -16,9 +17,16 @@ switch($request_method){
             getActivities();
         }
         break;
-    case "POST":
-        addUserToActivity();
-        break;
+    case 'POST':
+        if (isset($_GET['action']) && $_GET['action'] === "ADD") {
+            $data_query = file_get_contents('php://input');
+            parse_str($data_query, $data);
+            $nom = $data['nomU'];
+            $prenom = $data['prenomU'];
+            $email = $data['emailU'];
+            $idActivity = $data['idActivity'];
+        addUserToActivity($nom, $prenom, $email, $idActivity);
+        break;}
     default:
         header("HTTP/1.0 405 Method Not Allowed");
         break;
@@ -56,29 +64,27 @@ function getActivity($id=0){
 }
 
 //ajouter un utilisateur à une activité
-function addUserToActivity(){
-    //TODO : le lier à l'activité si c'est pas déjà fait
+function addUserToActivity($un_nom, $un_prenom, $un_email, $un_idAct){
+    //connexion à la DB
     global $conn;
-    // $user_id = $_POST["id_user"];
-    $activity_id = $_GET["idAct"];
-    $prenom = $_POST["prenom"];
-    $nom = $_POST["nom"];
-    $mail = $_POST["email"];
 
-    $checkUser = "SELECT * FROM utilisateurs WHERE _adresse_mail = '$mail'";
+    //récupération de tous les utilisateurs qui ont le même emeail que celui en paramètres
+    $checkUser = "SELECT * FROM utilisateurs WHERE _adresse_mail = '$un_email'";
     $response = array();
     $conn->query("SET NAMES utf8");
     $result = $conn->query($checkUser);
     $numRows = 0;
+    //boucle qui compte le nombre de lignes
     while ($row = $result->fetch()) {
         $numRows++;
     }
+    //si le nombre de lignes vaut 0, c'est que l'utilisateur n'existe pas, on va donc l'insérer
     if ($numRows===0) {
-        //insertion de l'utilisateur s'il n'existe pas déjà
-        $insertUser = 'INSERT INTO `utilisateurs` (`_id_utilisateur`, `prenom_utilisateur`, `_adresse_mail`, `_nom_utilisateur`) VALUES (NULL, "'.$prenom.'", "'.$mail.'", "'.$nom.'")';
+        $insertUser = 'INSERT INTO `utilisateurs` (`_id_utilisateur`, `prenom_utilisateur`, `_adresse_mail`, `_nom_utilisateur`) VALUES (NULL, "'.$un_prenom.'", "'.$un_email.'", "'.$un_nom.'")';
         $conn->query("SET NAMES utf8");
         $conn->query($insertUser);
 
+        //on récupère le dernier id inséré grâce à une commande de php (PDO)
         $user_id = $conn->lastInsertId();
     } else {
         //si l'utilisateur existe on récupère son id dans $user_id
@@ -87,24 +93,20 @@ function addUserToActivity(){
         $user_id = $row['_id_utilisateur'];
     }
     $result->closeCursor();
-    //TODO : créer le user s'il existe pas déjà
-    
 
-    //TODO : récupérer l'id d'un user avec son email
-
-
-    // $linkedUserToActivity = 'INSERT INTO est_inscrit(_id_utilisateur, _id_activite) VALUES("'.$user_id.'", "'.$activity_id.'")';
-    // $conn -> query("SET NAMES utf8");
-    // if($conn->query($linkedUserToActivity)){
-    //     $response=array(
-    //         "status"=> "success",
-    //         "message"=> "User successfully added to activity.");
-    // }
-    // else{
-    //     $response=array(
-    //         "status" => 'error',
-    //         "message" => 'Failed to add user to activity.');
-    // }
+    //finalement on lie notre utilisateur à l'activité
+    $linkedUserToActivity = 'INSERT INTO est_inscrit(_id_utilisateur, _id_activite) VALUES("'.$user_id.'", "'.$un_idAct.'")';
+    $conn -> query("SET NAMES utf8");
+    if($conn->query($linkedUserToActivity)){
+        $response=array(
+            "status"=> "success",
+            "message"=> "User successfully added to activity.");
+    }
+    else{
+        $response=array(
+            "status" => 'error',
+            "message" => 'Failed to add user to activity.');
+    }
     header("Content-Type: application/json");
     echo json_encode($response, JSON_PRETTY_PRINT);
 }

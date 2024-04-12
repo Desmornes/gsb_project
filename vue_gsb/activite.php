@@ -37,34 +37,25 @@
         <h2>
           S'inscrire
         </h2>
-        <form method="post" action="controleur_activite.php?idAct=<?php echo $activite["_id_activite"]; ?>&action=ADD">
-          <div class="form-container">
+        <form method="post" action="controleur_activite.php?action=ADD">
+        <div class="form-container">
             <div class="form-row">
                 <div class="form-group">
                     <label for="nom">Nom :</label>
-                    <input type="text" id="nom" name="nom" required>
+                    <input type="text" id="nom" name="nom">
                 </div>
                 <div class="form-group">
                     <label for="prenom">Prénom :</label>
-                    <input type="text" id="prenom" name="prenom" required>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="email">Adresse Email :</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="telephone">Numéro de téléphone :</label>
-                    <input type="tel" id="telephone" name="telephone">
+                    <input type="text" id="prenom" name="prenom">
                 </div>
             </div>
             <div class="form-group">
-                <label for="message">Message :</label>
-                <textarea id="message" name="message" rows="4" cols="50"></textarea>
+                <label for="email">Adresse Email :</label>
+                <input type="email" id="email" name="email" required>
             </div>
-          </div>
-          <input type="submit" value="Envoyer">
+            <input type="hidden" id="idAct" name="idAct" value="<?php echo $activite["_id_activite"]; ?>">
+        </div>
+        <input type="submit" class="submit-btn" value="Envoyer">
         </form>
       </div>
       <!-- Menu offcanvas -->
@@ -78,7 +69,7 @@
             <a href="../controleur_gsb/controleur_medic.php" target="_blank">Médicaments</a><br>
             <a href="../controleur_gsb/controleur_activite.php">Activités</a><br>
             <hr>
-            <a href="../vue_gsb/mentions_legales.html" target="_blank">Mentions légales</a><br>
+            <a href="../vue_gsb/mentionLegale.html" target="_blank">Mentions légales</a><br>
             <a href="../vue_gsb/politique_de_confidentialite.html" target="_blank">Politique de confidentialité</a><br>
             <a href="../vue_gsb/plan_du_site.html" target="_blank">Plan du site</a><br>
         </div>
@@ -107,7 +98,7 @@
       .offcanvas {
       background-color: #2A201E;
       color:white;
-    }
+      }
 
       .contenu {
         margin-left:50px;
@@ -115,19 +106,22 @@
       }
 
       .form-container {
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
-      }
-
-      .form-row {
-          display: flex;
-          gap: 20px;
+        display: grid;
+        gap: 20px;
+        grid-template-columns: auto;
+        justify-content: center;
+        
       }
 
       .form-group {
-          display: flex;
-          flex-direction: column;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-row {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(2, auto);
       }
 
       input, textarea {
@@ -139,9 +133,8 @@
         outline: 0;
       }
 
-      input[type=submit]{
-        margin-top:10px;
-        padding:4px;
+      .submit-btn{
+        justify-self: center;
       }
 
       a {
