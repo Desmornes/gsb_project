@@ -19,7 +19,6 @@
         <h1><?php echo $medicament["_nom"] ?></h1>
         <br>
         <div>
-          <!-- <img src="images/pill-icon.png" class="card-img-top" alt="..."> -->
           <h2>
           Type
           </h2>
@@ -37,21 +36,20 @@
           <h2>
             Effets secondaires
           </h2>
+          <ul>
             <?php foreach($medicament["effets_secondaires"] as $effet): ?>
             <li><?php echo $effet["_nom_effet_secondaire"] ?></li>
             <?php endforeach;?>
+          </ul>
           <hr>
           <h2>
             Interactions
           </h2>
+          <ul>
             <?php foreach($medicament["interactions"] as $medicament): ?>
             <li><?php echo $medicament["_nom"] ?></li>
-            <?php endforeach;?>
-          <hr>
-          <h2>
-            Indications
-          </h2>
-          <p>blabla contenu indications</p>          
+            <?php endforeach;?> 
+          </ul>      
         </div>
       </div>
       <!-- Menu offcanvas -->

@@ -76,10 +76,10 @@ function getMedicament($id = 0)
 function getEffetsTherapeutiques($id = 0)
 {
     global $conn;
-    $query = "SELECT _nom_effet_therapeutique
-              FROM effets_therapeutiques 
-              JOIN procure ON effets_therapeutiques._id_effet_therapeutique = procure._id_effet_therapeutique
-              WHERE effets_therapeutiques._id_effet_therapeutique =" . $id . ";";
+    $query = "SELECT effets_therapeutiques._nom_effet_therapeutique
+                FROM effets_therapeutiques 
+                JOIN procure ON effets_therapeutiques._id_effet_therapeutique = procure._id_effet_therapeutique
+                WHERE procure._id_medicament=" . $id . ";";
     $response = array();
     
     $conn->query("SET NAMES utf8");
@@ -95,10 +95,10 @@ function getEffetsTherapeutiques($id = 0)
 function getEffetsSecondaires($id = 0)
 {
     global $conn;
-    $query = "SELECT _nom_effet_secondaire
-              FROM effets_secondaires 
-              JOIN provoque ON effets_secondaires._id_effet_secondaire = provoque._id_effet_secondaire
-              WHERE effets_secondaires._id_effet_secondaire =" . $id . ";";
+    $query = "SELECT effets_secondaires._nom_effet_secondaire
+                FROM effets_secondaires
+                JOIN provoque ON effets_secondaires._id_effet_secondaire = provoque._id_effet_secondaire
+                WHERE provoque._id_medicament =" . $id . ";";
     $response = array();
     
     $conn->query("SET NAMES utf8");

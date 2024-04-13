@@ -27,7 +27,6 @@
             </tr>
             </thead>
             <tbody>
-            
             <?php
             $medicaments = json_decode($result, true);
              foreach ($medicaments as $medicament): ?>
@@ -42,8 +41,7 @@
           </tbody>
         </table>
         <p>Pour chaque médicament, nous fournissons des informations sur son utilisation recommandée, ses effets secondaires potentiels et les précautions à prendre lors de son utilisation. Si vous avez des questions sur l'un de nos produits ou si vous avez besoin de conseils supplémentaires, n'hésitez pas à contacter notre équipe de pharmaciens expérimentés.</p>
-        <p>Nous tenons également à souligner l'importance de prendre vos médicaments conformément aux instructions fournies par votre professionnel de la santé et de ne jamais dépasser la dose recommandée sans consulter un professionnel de la santé.</p>
-        <p>Nous vous remercions de votre confiance en GSB. Votre santé et votre bien-être sont notre priorité absolue.</p>
+        
     </div>
     <div class="position-absolute bottom-0 end-0 m-3">
       <a href="../controleur_gsb/controleur_activite.php">

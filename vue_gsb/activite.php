@@ -54,8 +54,8 @@
                 <input type="email" id="email" name="email" required>
             </div>
             <input type="hidden" id="idAct" name="idAct" value="<?php echo $activite["_id_activite"]; ?>">
-        </div>
-        <input type="submit" class="submit-btn" value="Envoyer">
+        </div><br>
+        <input type="submit" value="Envoyer">
         </form>
       </div>
       <!-- Menu offcanvas -->
@@ -69,7 +69,7 @@
             <a href="../controleur_gsb/controleur_medic.php" target="_blank">Médicaments</a><br>
             <a href="../controleur_gsb/controleur_activite.php">Activités</a><br>
             <hr>
-            <a href="../vue_gsb/mentionLegale.html" target="_blank">Mentions légales</a><br>
+            <a href="../vue_gsb/mentions_legales.html" target="_blank">Mentions légales</a><br>
             <a href="../vue_gsb/politique_de_confidentialite.html" target="_blank">Politique de confidentialité</a><br>
             <a href="../vue_gsb/plan_du_site.html" target="_blank">Plan du site</a><br>
         </div>
@@ -101,16 +101,16 @@
       }
 
       .contenu {
-        margin-left:50px;
-        margin-top:50px;
+        margin:150px;
+        margin-top: 90px;
+        margin-left: 90px;
       }
 
       .form-container {
         display: grid;
         gap: 20px;
         grid-template-columns: auto;
-        justify-content: center;
-        
+        width:30%;
       }
 
       .form-group {
@@ -131,10 +131,6 @@
         padding:4px;
         color:white;
         outline: 0;
-      }
-
-      .submit-btn{
-        justify-self: center;
       }
 
       a {
