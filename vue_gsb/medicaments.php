@@ -61,7 +61,7 @@
             <hr>
             <a href="../vue_gsb/mentions_legales.html" target="_blank">Mentions légales</a><br>
             <a href="../vue_gsb/politique_de_confidentialite.html" target="_blank">Politique de confidentialité</a><br>
-            <a href="../vue_gsb/plan_du_site.html" target="_blank">Plan du site</a><br>
+            <a href="../vue_gsb/politique_de_cookies.html" target="_blank">Politique de cookies</a><br>
         </div>
     </div>
 </body>
