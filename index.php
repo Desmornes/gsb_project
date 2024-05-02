@@ -11,7 +11,7 @@
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> <!-- Script JavaScript de Bootstrap -->
-        <div class="carousel-inner"> <!-- Contenu du carrousel -->
+        <div id="carouselExampleFade" class="carousel slide carousel-fade"> <!-- Contenu du carrousel -->
             <div class="carousel-item active"> <!-- Première diapositive active -->
                 <img src="vue_gsb/images/home_image.jpg" class="d-block w-100" alt="..."> <!-- Image de la diapositive -->
                 <div class="carousel-caption d-none d-md-block"> <!-- Légende de la diapositive -->
