@@ -9,7 +9,7 @@ if(!empty($_GET["idMed"])){
     $id = intval($_GET["idMed"]);
 
     // Construction de l'URL pour récupérer un médicament par son ID
-    $url = "http://localhost/gsb_projet/modele_gsb/modele_medic.php?idMed='$id'";
+    $url = "http://localhost/gsb_project/modele_gsb/modele_medic.php?idMed='$id'";
 
     // Options de la requête HTTP
     $options = array(
@@ -32,7 +32,7 @@ else{
     // Si aucun ID de médicament n'est fourni, récupérer tous les médicaments
 
     // Construction de l'URL pour récupérer tous les médicaments
-    $url = "http://localhost/gsb_projet/modele_gsb/modele_medic.php";
+    $url = "http://localhost/gsb_project/modele_gsb/modele_medic.php";
 
     // Options de la requête HTTP
     $options = array(

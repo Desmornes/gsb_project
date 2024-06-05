@@ -42,7 +42,7 @@
             <th scope="row"><?php echo $medicament['_id_medicament']; ?></th>
             <td><?php echo $medicament['_nom']; ?></td>
             <td><?php echo $medicament['_type']; ?></td>
-            <td><a href="http://localhost/gsb_projet/controleur_gsb/controleur_medic.php?idMed=<?php echo $medicament['_id_medicament']; ?>">Voir plus d'informations</a></td>
+            <td><a href="http://localhost/gsb_project/controleur_gsb/controleur_medic.php?idMed=<?php echo $medicament['_id_medicament']; ?>">Voir plus d'informations</a></td>
             </tr>
             <?php endforeach; ?>
             <!-- Fin de la boucle PHP -->

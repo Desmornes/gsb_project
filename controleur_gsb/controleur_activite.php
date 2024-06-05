@@ -9,7 +9,7 @@ if(!empty($_GET["idAct"])){
     $id = intval($_GET["idAct"]);
 
     // Construction de l'URL pour récupérer une activité par son ID
-    $url = "http://localhost/gsb_projet/modele_gsb/modele_activite.php?idAct='$id'";
+    $url = "http://localhost/gsb_project/modele_gsb/modele_activite.php?idAct='$id'";
 
     // Options de la requête HTTP
     $options = array(
@@ -32,7 +32,7 @@ else{
     // Si aucun ID d'activité n'est fourni, récupérer toutes les activités
 
     // Construction de l'URL pour récupérer toutes les activités
-    $url = "http://localhost/gsb_projet/modele_gsb/modele_activite.php";
+    $url = "http://localhost/gsb_project/modele_gsb/modele_activite.php";
 
     // Options de la requête HTTP
     $options = array(
@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_GET['action']) && $_GET['ac
     $id = $_POST["idAct"];
 
     // Construction de l'URL pour ajouter un utilisateur à une activité
-    $url = "http://localhost/gsb_projet/modele_gsb/modele_activite.php?action=ADD";
+    $url = "http://localhost/gsb_project/modele_gsb/modele_activite.php?action=ADD";
 
     // Données à envoyer dans la requête POST
     $data = array(

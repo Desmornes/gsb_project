@@ -45,7 +45,7 @@
                 <tr>
                     <th scope="row"><?php echo $activite['_id_activite']; ?></th>
                     <td><?php echo $activite['nom_activite']; ?></td>
-                    <td><a href="http://localhost/gsb_projet/controleur_gsb/controleur_activite.php?idAct=<?php echo $activite['_id_activite']; ?>">Voir plus d'informations</a></td>
+                    <td><a href="http://localhost/gsb_project/controleur_gsb/controleur_activite.php?idAct=<?php echo $activite['_id_activite']; ?>">Voir plus d'informations</a></td>
                 </tr>
                 <?php endforeach;?>
             </tbody>
